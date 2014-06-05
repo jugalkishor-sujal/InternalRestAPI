@@ -1,0 +1,2 @@
+module TimeSharesHelper
+end

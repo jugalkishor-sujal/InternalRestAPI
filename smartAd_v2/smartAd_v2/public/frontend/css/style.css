@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900);
+html {}
+body { font-family: 'Maven Pro', sans-serif; background-image:url(../img/bodybg.png)}
+header{ background-color:#d30505; box-shadow:0px 1px 0px rgba(0, 0, 0, 0.8); color:#fff;  position: relative;z-index:1;  }
+header a { color:#fff}
+.banner{ background-image:url(../img/bannerbg.jpg); background-repeat:no-repeat; height:730px; background-position:center; background-size:100%}
+header .container { padding:15px 0px;}
+header .nav { font-size:18px; position: relative;    top:0px;}
+.navbar-brand{ font-size:26px}
+.filtrbx{ height:645px; background-image:url(../img/bannerbg.jpg); background-repeat:no-repeat; background-size:100%;}
+.filtrbxin  { position:relative; top:30px;   }
+.filtrbxin h3 { color:#d30505; font-weight:100 }
+.fltrtypbx{ border-radius:12px; background-color:#161616; padding:25px; color:#fff}
+.fltrtypbx h3 { color:#fff}
+.fltrimg{ padding: 10px 0px 20px 0px}
+.adtype{color:#fff; text-align:center}
+.adtype h3 { color:#fff; margin-bottom:20px}
+.bgtbx, .extraopt{ padding:10px}
+.bgtbx h3 { margin:0; padding:17px 0;}
+.rngbxin { padding: 17px 0; }
+.sldrbase{ background-color:#0e0e0e; border-radius:3px; border:1px solid #000; height:22px; position:relative; top: 3px;}
+.dragablediv { background-color:#ba0807; height:20px; width:70%; margin:auto}
+.extraopt .btn-default {  background-color: #161616; border-color: #161616;  color: #fff; font-size:18px }
+.extraopt .btn-default:hover, .extraopt  .btn-default:focus, .extraopt   .btn-default:active, .extraopt  .btn-default.active, .extraopt  .open .dropdown-toggle.btn-default {
+   background-color: #d30505; border-color:  #d30505; color: #fff;	border-radius:6px !important }
+.sortbar{ background-color:#161616; box-shadow:0px 3px 5px -2px #000; position:relative; z-index:1; padding:10px; font-size:18px; color:#fff; font-weight:100}
+.sortbar ul  { margin:0; padding:0}
+.sortbar ul li { display:inline-block;}
+.sortbar label { font-weight:100}
+.sortingarrow { display:inline-block; width:23px; height:20px; background-image:url(../img/sortarrow-down1.png); background-position:center; position:relative; top:3px}
+.sortingarrow:hover { background-image:url(../img/sortarrow-down2.png);}
+.arrowup{ background-image:url(../img/sortarrow-up1.png)}
+.arrowup:hover{ background-image:url(../img/sortarrow-up2.png)}
+.radioimg1 { width:30px; height:30px; display:inline-block; position:relative; top:10px; background-image:url(../img/radio-off.png)} 
+.sortbar input[type=radio]{  display:none;} 
+.sortbar input[type=radio] + span{ background-image:url(../img/radio-off.png)  cursor:pointer; }
+.sortbar input[type=radio]:checked + span{ background-image:url(../img/radio-off.png); cursor:pointer }
+.bidcont { margin-top:50px;}
+.bidad{ border-radius:6px; background-color:#161616; border-top:6px solid #d30505; min-height:300px; margin-bottom:20px}
+.bidadin { padding:15px; color:#d5d5d5}
+.bidadin .btn-default{ background-color:#2c2c2c; color:#d5d5d5; border:1px solid #2c2c2c}
+.bidadin .btn-default:hover, .bidadin  .btn-default:focus, .bidadin   .btn-default:active,.bidadin  .btn-default.active, .bidadin  .open .dropdown-toggle.btn-default {
+   background-color: #d30505; border-color:  #d30505; color: #fff;  }
+.adspec{ margin-top:10px}
+.adspec .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td { border:none; padding:3px }
+.adopt{ margin-top:20px; margin-bottom:20px}
+.progbr { margin:25px 0}
+.progbr .progress { height:10px; background-color:#2c2c2c}
+.progbr .progress-bar-danger { background-color: #d30505;}
+.highbid{ margin: 20px; 0; color:#fff}
+.highbid h3 { font-weight:100}
+.bidadbtn {}
+
+ 
+.bidadbtn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #d9d9d9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #d9d9d9;
+	box-shadow:inset 0px 1px 0px 0px #d9d9d9;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #696969), color-stop(1, #4e4e4e) );
+	background:-moz-linear-gradient( center top, #696969 5%, #4e4e4e 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#696969', endColorstr='#4e4e4e');
+	background-color:#696969;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #000;
+	color:#0a0a0a;
+	text-shadow:1px 1px 0px #8a8a8a;
+	font-size:20px;
+	font-weight:bold;
+	font-style:normal;	line-height:20px;
+	text-decoration:none;
+	text-align:center;
+	
+}
+.bidadbtn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4e4e4e), color-stop(1, #696969) );
+	background:-moz-linear-gradient( center top, #4e4e4e 5%, #696969 100% );
+	 
+	color:#0a0a0a;
+	text-shadow:1px 1px 0px #8a8a8a;
+	background-color:#4e4e4e;
+}.bidadbtn:active {
+	position:relative;
+	top:1px;
+} 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {border-color:#000}
+a:hover, a:focus { color: #999}
+
+/*.......................Inner Page CSS.........................*/
+.filtrbxinner{ height:200px}
+.usrbidstat { padding:20px; color:#b2b2b2; font-size:18px}
+.usrbidstat h1 { font-size:56px; margin:0; padding:0; margin-bottom:0px; color:#fff; }
+.adimg{ position:relative;}
+.daybx{ position:absolute; top0; width:100%; height:148px; background-color: rgba(0, 0, 0, .8)}
+.daybx h1{ font-size:46px; color:#fff; text-align:center; margin-bottom:0; padding:0}
+.daybx p { color:#fff; text-align:center}
+.roundbx{ border:2px solid #fff; border-radius:50px; margin:auto; margin-top:20px; width:100px}
+.bidstat { border:1px solid #000; border-radius:3px; background-color:#2c2c2c; height:32px; margin-bottom:20px}
+.ifwon{ height:30px; background-color:#53841a; color:#fff; border-radius:3px; line-height:30px; text-align:center; font-size:18px}
+.iflost{ background-color:#f76464}
+.ifnot{ height:30px; background-color:#1a7b84; color:#fff; border-radius:3px; line-height:30px; text-align:center; font-size:18px; width:50%; float:left}
+.ifnot2{height:30px;  color:#fff; border-radius:3px; line-height:30px; text-align:center; font-size:18px; width:50%; float:left}
+.bidfig {  height:132px; }
+.bidfig div { text-align:right}
+.bidfig h2 { margin:0; padding:0}
+.bidfig div:first-child { text-align:left}
+.adtyplbl{ margin:0; padding:0}
+.adtyplbl li { display:inline-block; width:32%; text-align:center}
+.adtyplbl li:first-child { text-align:left}
+.adtyplbl li:last-child { text-align:right}
+.adtyplbl li span { color:#bebebe; border:1px solid #4e4e4e; display:inline-block; padding:3px 10px; border-radius:6px; margin:auto}
+
+/*-------------------------------Popup-------------------------------*/
+.pop-up{ width:600px; padding:0; padding-bottom:50px; background-color:rgba( 0, 0, 0, .8); margin-top:200px; border-radius:12px}
+.pop-up header { border-radius: 12px 12px 0 0}
+.loginbx { width:80%; margin:auto; color:#fff; font-weight:100; margin-top:50px}
+.loginbx lable { font-weight:100}

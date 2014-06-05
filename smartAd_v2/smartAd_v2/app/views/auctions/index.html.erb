@@ -1,0 +1,93 @@
+<% content_for :content do %>
+    <div class="pageheader">
+      <h2><i class="fa fa-table"></i> My Auctions Tables</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">SmartAds</a></li>
+          <li class="active">Auctions Tables</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="contentpanel">
+		<div class="panel panel-default">
+			<div class="panel-body">
+          <div class="table-responsive">
+          <table class="table" id="table2">
+              <thead>
+                 <tr>
+                    <th>Name</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Current Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                 </tr>
+              </thead>
+              <tbody>
+				  <% for u in @auctions %>
+                 <tr class="odd gradeX">
+                    <td><%= u.product.name %></td>
+                    <td><%= u.start_at.strftime("%B %e, %Y") %></td>
+                    <td><%= u.end_at.strftime("%B %e, %Y") %></td>
+                    <td><%= u.current_price %></td>
+                    <td class="center">
+						<% if u.status == 0 %>
+							<label class="btn btn-warning">On Hold</label>
+						<% elsif u.status == 1 %>
+							<label class="btn btn-success">Started</label>
+						<% elsif u.status == 2 %>
+							<label class="btn btn-danger">Ended</label>
+						<% end %>
+					</td>
+                    <td class="center"><%= link_to("Edit", edit_auction_path(u)) %></td>
+                 </tr>
+                 <% end %>
+              </tbody>
+           </table>
+          </div><!-- table-responsive -->
+	  </div><!-- panel-body -->
+	</div><!-- panel -->
+        
+</div><!-- contentpanel -->
+
+<script src="js/jquery.datatables.min.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    
+
+    jQuery('#table2').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+    
+    // Delete row in a table
+    jQuery('.delete-row').click(function(){
+      var c = confirm("Continue delete?");
+      if(c)
+        jQuery(this).closest('tr').fadeOut(function(){
+          jQuery(this).remove();
+        });
+        
+        return false;
+    });
+    
+    // Show aciton upon row hover
+    jQuery('.table-hidaction tbody tr').hover(function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+    },function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+  
+  
+  });
+</script>
+
+<% end %>

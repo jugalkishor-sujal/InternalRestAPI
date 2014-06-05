@@ -1,0 +1,164 @@
+<% content_for :content do %>
+    <div class="pageheader">
+      <h2><i class="fa fa-edit"></i> Update User</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="index.html">SmartAds</a></li>
+          <li class="active">Update User</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="contentpanel">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="#" class="panel-close">&times;</a>
+            <a href="#" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">Edit Form</h4>
+          <p>Please edit in all the below fields for updating a users.</p>
+        </div>
+		<div class="panel panel-default">
+			 <div class="panel-body panel-body-nopadding">
+
+				 <% if @user.errors.any? %>
+			   <div class="alert alert-danger">
+				<% @user.errors.full_messages.each do |msg| %>
+					<%= msg %><br/>
+				    <% end %>
+				</div>
+				<% end %>
+				<%= form_for(@user, :as => :user, :html => {:class => "form-horizontal form-bordered"}, :url => user_path(@user)) do |f| %>
+	         	
+				
+            
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">First Name</label>
+	              <div class="col-sm-4">
+					<%= f.text_field :first_name, :class => "form-control", placeholder: "Your First Name"%>
+	              </div>
+	            </div>
+            
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">Last Name</label>
+	              <div class="col-sm-4">
+					<%= f.text_field :last_name, :class => "form-control", placeholder: "Your Last Name"%>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">Email</label>
+	              <div class="col-sm-6">
+					<%= f.text_field :email, :class => "form-control", placeholder: "Your Contact Email"%>
+	              </div>
+	            </div>
+				
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Password</label>
+                  <div class="col-sm-4">
+ 				   <%= f.password_field :password, :autocomplete => "off" , :class => "form-control"%>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Password Confirmation</label>
+                  <div class="col-sm-4">
+ 				   <%= f.password_field :password_confirmation, :class => "form-control"%>
+                  </div>
+                </div>
+				
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">User Type</label>
+                  <div class="col-sm-4">
+ 					<% @collectionSet2 = UserType.all%>
+                     <%= f.collection_select :user_type_id, @collectionSet2, :id, :name, {:include_blank => true}, {:class => 'form-control input-sm mb15'} %>
+                  </div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-3 control-label">Tel</label>
+					<div class="col-sm-3 input-group mb20">
+                  	  	<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+						<%= f.text_field :tel, :class => "form-control tel", placeholder: "Your Phone Number"%>
+			  		</div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-3 control-label">Mobile</label>
+					<div class="col-sm-3 input-group mb20">
+                  	  	<span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+						<%= f.text_field :mobile, :class => "form-control tel", placeholder: "Your Phone Number"%>
+			  		</div>
+                </div>
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">Address</label>
+	              <div class="col-sm-6">
+					<%= f.text_area :address, :class => "form-control address", rows: "5"%>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">Website</label>
+	              <div class="col-sm-6">
+					<%= f.text_field :website, :class => "form-control", placeholder: "Your Company Website (if any)"%>
+	              </div>
+	            </div>
+				
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">Profile Picture</label>
+	              <div class="col-sm-6">
+	                <div class="fileupload fileupload-new" data-provides="fileupload">
+	                  <div class="input-append">
+	                    <div class="uneditable-input">
+	                      <i class="glyphicon glyphicon-file fileupload-exists"></i>
+	                      <span class="fileupload-preview"></span>
+	                    </div>
+	                    <span class="btn btn-default btn-file">
+	                      <span class="fileupload-new">Select file</span>
+	                      <span class="fileupload-exists">Change</span>
+	                       <%= f.file_field :cover %>
+	                    </span>
+	                    <a href="general-forms.html#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+				
+	            <div class="form-group">
+	              <label class="col-sm-3 control-label">Descriptions</label>
+	              <div class="col-sm-6">
+					<%= f.text_area :description, :class => "form-control address", rows: "5", placeholder: 'Something about Yourself'%>
+	              </div>
+	            </div>
+			  
+           
+          	  
+	  	  	</div><!-- panel-body -->
+	        <div class="panel-footer">
+				 <div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+					  <button class="btn btn-primary">Submit</button>&nbsp;
+					  <button class="btn btn-default">Cancel</button>
+					</div>
+				 </div>
+			  </div><!-- panel-footer -->
+
+           <% end %>
+		</div><!-- panel -->
+        
+	</div><!-- contentpanel -->
+	
+<script src="/js/jquery.autogrow-textarea.js"></script>
+<script src="/js/bootstrap-fileupload.min.js"></script>
+<script src="/js/bootstrap-timepicker.min.js"></script>
+<script src="/js/jquery.maskedinput.min.js"></script>
+<script src="/js/jquery.tagsinput.min.js"></script>
+<script src="/js/jquery.mousewheel.js"></script>
+<script src="/js/chosen.jquery.min.js"></script>
+<script src="/js/dropzone.min.js"></script>
+<script src="/js/colorpicker.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    
+	  jQuery(".tel").mask("(999) 9999 9999");
+
+	  jQuery('.address').autogrow();
+  });
+</script>
+<% end %>

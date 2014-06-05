@@ -1,0 +1,85 @@
+<% content_for :content do %>
+    <div class="pageheader">
+      <h2><i class="fa fa-table"></i> Products View Counts Tables</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="index.html">SmartAds</a></li>
+          <li class="active">Products View Counts Tables</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="contentpanel">
+		<div class="panel panel-default">
+			<div class="panel-body">
+          <div class="table-responsive">
+          <table class="table" id="table2">
+              <thead>
+                 <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Start Date</th>
+                    <th>Duration</th>
+                    <th>Views</th>
+                    <th>Actions</th>
+                 </tr>
+              </thead>
+              <tbody>
+				  <% for u in @products %>
+                 <tr class="odd gradeX">
+                    <td><%= u.name %></td>
+                    <td><%= u.product_type.name %></td>
+                    <td class="center"><%= u.start_at.strftime("%B %e, %Y")%></td>
+                    <td><%= u.duration  %> Month(s)</td>
+                    <td class="center"><%= rand(100..30000)%></td>
+                    <td class="center"><a href="/products/<%= u.id %>/graph">View Graph</a> | <%= link_to("Edit", edit_product_path(u)) %> | <%= link_to("Delete", product_path(u), :confirm => 'Are you sure?', :method => :delete, :title => "Delete")%></td>
+                 </tr>
+                 <% end %>
+              </tbody>
+           </table>
+          </div><!-- table-responsive -->
+	  </div><!-- panel-body -->
+	</div><!-- panel -->
+        
+</div><!-- contentpanel -->
+
+<script src="js/jquery.datatables.min.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    
+
+    jQuery('#table2').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+    
+    // Delete row in a table
+    jQuery('.delete-row').click(function(){
+      var c = confirm("Continue delete?");
+      if(c)
+        jQuery(this).closest('tr').fadeOut(function(){
+          jQuery(this).remove();
+        });
+        
+        return false;
+    });
+    
+    // Show aciton upon row hover
+    jQuery('.table-hidaction tbody tr').hover(function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+    },function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+  
+  
+  });
+</script>
+
+<% end %>
