@@ -15,7 +15,7 @@ UserManager = function (app) {
     });
   });
   app.post('/users', function (req, res) {
-      console.log(req.body);
+      console.log(req.body.email);
       var _user = {
           "email": ''//req.body.email//,
           //"encrypted_password": req.encrypted_password,
